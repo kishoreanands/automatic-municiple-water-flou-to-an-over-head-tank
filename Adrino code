@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class WaterManagementSystem {
+
+    static boolean waterFlow;
+    static float distance;
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("System Started");
+
+        while (true) {
+
+            // Simulate Water Flow Sensor
+            System.out.print("\nIs Water Flow Detected? (true/false): ");
+            waterFlow = sc.nextBoolean();
+
+            // Simulate Ultrasonic Sensor
+            System.out.print("Enter Distance (cm): ");
+            distance = sc.nextFloat();
+
+            // Relay Logic
+            boolean valveOpen;
+
+            if (waterFlow && distance > 30) {
+                valveOpen = true;
+            } else {
+                valveOpen = false;
+            }
+
+            // Display Output
+            System.out.println("\n===== System Status =====");
+
+            System.out.println("Water Flow : " + (waterFlow ? "YES" : "NO"));
+            System.out.println("Distance   : " + distance + " cm");
+
+            if (valveOpen) {
+                System.out.println("Valve      : OPEN");
+            } else {
+                System.out.println("Valve      : CLOSED");
+            }
+
+            System.out.println("=========================");
+        }
+    }
+}
